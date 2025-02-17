@@ -1,9 +1,9 @@
 <?php
 // معلومات الاتصال بـ FTP
-$ftp_server = "ftp.mil.beb.mybluehost.me";
-$ftp_username = "id_quote@trenj.co";
-$ftp_password = "ArchAmmar017";
-$remote_dir = "ano/form4/"; 
+$ftp_server = " ";
+$ftp_username = "";
+$ftp_password = " ";
+$remote_dir = " "; 
 $local_dir = __DIR__;
 
 // دالة لعرض التقدم
@@ -133,7 +133,6 @@ foreach ($files as $file) {
 // إغلاق الاتصال
 ftp_close($conn_id);
 showProgress("\n✅ تم إكمال عملية الرفع!");
-showProgress("🌐 يمكنك الآن زيارة https://mil.beb.mybluehost.me/ano/form4 لرؤية التغييرات");
 showProgress("📤 جاري بدء عملية الرفع...");
 showProgress("✅ تم اكتمال عملية الرفع بنجاح");
 showProgress("👋 تم إغلاق الاتصال");

@@ -44,81 +44,255 @@ ini_set('display_errors', 1);
         }
         .form-label {
             font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            display: block;
         }
         .required-star {
             color: #dc3545;
         }
         .form-text {
             color: #6c757d;
-            font-size: 0.875rem;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
         }
         .custom-radio-group .form-check {
             margin-bottom: 10px;
         }
+        /* أنماط التبويبات العمودية */
+        .vertical-tabs {
+            display: flex;
+            min-height: 500px;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tabs-navigation {
+            width: 280px;
+            background: #f8f9fa;
+            border-radius: 10px 0 0 10px;
+            border-right: 1px solid #dee2e6;
+            padding: 20px 0;
+        }
+        .tab-content {
+            flex: 1;
+            padding: 25px;
+            background: #fff;
+            border-radius: 0 10px 10px 0;
+        }
+        /* أنماط الروابط */
+        .nav-pills .nav-link {
+            padding: 12px 20px;
+            color: #495057;
+            border-right: 3px solid transparent;
+            border-radius: 0;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-pills .nav-link:hover {
+            background: #e9ecef;
+        }
+        .nav-pills .nav-link.active {
+            background: #fff;
+            color: #0d6efd;
+            border-right-color: #0d6efd;
+            font-weight: 600;
+        }
+        /* أنماط الأقسام */
+        .tab-section {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .tab-section:last-child {
+            border-bottom: none;
+        }
+        .tab-section-title {
+            color: #6c757d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px 20px;
+        }
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px 20px;
+            background: #fff;
+            border-radius: 0 0 0 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .completion-text {
+            font-weight: 600;
+            color: #0d6efd;
+        }
+        /* نمط مجموعة الأسئلة */
+        .mb-4 {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        /* نمط عداد الأسئلة */
+        .questions-counter {
+            background-color: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #495057;
+            margin-right: 8px;
+            font-weight: 600;
+        }
+        .nav-link .questions-counter {
+            margin-right: auto;
+        }
+        /* أنماط حالة التبويبات */
+        .nav-link.incomplete {
+            color: #dc3545 !important;
+            background-color: #f8d7da !important;
+        }
+        .nav-link.complete {
+            color: #198754 !important;
+            background-color: #d1e7dd !important;
+        }
+        .questions-counter.incomplete {
+            background-color: #dc3545 !important;
+            color: #fff !important;
+        }
+        .questions-counter.complete {
+            background-color: #198754 !important;
+            color: #fff !important;
+        }
+        /* تأثير الاهتزاز */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+        /* تمييز السؤال غير المكتمل */
+        .question-incomplete {
+            border: 2px solid #dc3545 !important;
+            background-color: #fff5f5 !important;
+            padding: 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-4">
+        <div class="progress-indicator">
+            <span class="completion-text">0% مكتمل</span>
+        </div>
         <div class="form-container">
             <h2 class="text-center mb-4">استمارة المخططات النهائية</h2>
             <p class="text-muted text-center mb-4">الرجاء تزويدنا بالمعلومات اللازمة لإعداد المخططات النهائية. نود الإحاطة بأن أي تعديلات على المواصفات بعد تجهيز المخططات ستستلزم رسوماً إضافية</p>
             
             <form id="finalPlansForm" method="POST" action="process.php" enctype="multipart/form-data">
-                <ul class="nav nav-tabs" id="formTabs" role="tablist">
+                <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#step1">المعلومات الأساسية</button>
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#step1">
+                            معلومات أساسية
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step2">الوحدات السكنية</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step2">
+                            الوحدات السكنية
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step3">ارتفاعات الأسقف</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step3">
+                            ارتفاعات الأسقف
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step4">البيت الذكي (Smart Home)</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step4">
+                            البيت الذكي
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step5">التكييف</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step5">
+                            التكييف
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step6">الخزانات</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step6">
+                            الخزان
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step7">أعمال السباكة</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step7">
+                            أعمال السباكة
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step10">المصعد</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step10">
+                            المصعد
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step8">الأعمال الإنشائية</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step8">
+                            الأعمال الإنشائية
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step9">طلبات إضافية</button>
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step9">
+                            طلبات إضافية
+                            <span class="questions-counter">0/0</span>
+                        </button>
                     </li>
                 </ul>
 
                 <div class="tab-content" id="formTabsContent">
                     <!-- المرحلة الأولى -->
                     <div class="tab-pane fade show active" id="step1">
-                        <div class="mb-3">
-                            <label class="form-label">اسمك <span class="required-star">*</span></label>
-                            <input type="text" class="form-control" name="name" required>
+                        <div class="mb-4">
+                            <label class="form-label">اسم المالك <span class="required-star">*</span></label>
+                            <input type="text" class="form-control" name="owner_name" required>
                         </div>
-                        <div class="mb-3">
+
+                        <div class="mb-4">
                             <label class="form-label">رقم المشروع <span class="required-star">*</span></label>
                             <input type="text" class="form-control" name="project_number" placeholder="مثال: A 220800" required>
                             <div class="form-text">تجده في عنوان قروب الواتساب</div>
                         </div>
-                        <div class="mb-3">
+
+                        <div class="mb-4">
                             <label class="form-label">البريد الإلكتروني <span class="required-star">*</span></label>
-                            <input type="email" class="form-control" name="email" required>
+                            <input type="email" 
+                                   class="form-control" 
+                                   name="email" 
+                                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                   oninvalid="this.setCustomValidity('الرجاء إدخال بريد إلكتروني صحيح')"
+                                   oninput="this.setCustomValidity('')"
+                                   placeholder="example@domain.com"
+                                   required>
                             <div class="form-text">سيتم إرسال تأكيد استلام الاستمارة والمتابعة على هذا البريد</div>
                         </div>
                     </div>
 
                     <!-- المرحلة الثانية -->
                     <div class="tab-pane fade" id="step2">
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label class="form-label">عدد الوحدات السكنية <span class="required-star">*</span></label>
                             <div class="form-text">حدد عدد الوحدات حسب ما سيتم إخراج الرخصة عليه</div>
                             <div class="custom-radio-group">
@@ -144,7 +318,7 @@ ini_set('display_errors', 1);
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <label class="form-label">نوع العزل الحراري للحوائط الخارجية <span class="required-star">*</span></label>
                             <div class="form-text">اختيارك للعازل يؤثر على كمية الحديد المستخدمة في المبنى</div>
                             <div class="custom-radio-group">
@@ -592,7 +766,7 @@ ini_set('display_errors', 1);
                 <div class="d-flex justify-content-between mt-4">
                     <button type="button" class="btn btn-secondary" id="prevBtn">السابق</button>
                     <button type="button" class="btn btn-primary" id="nextBtn">التالي</button>
-                    <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">إرسال</button>
+                    <button type="submit" class="btn btn-success" id="submitBtn">إرسال النموذج</button>
                 </div>
             </form>
         </div>
@@ -610,21 +784,28 @@ ini_set('display_errors', 1);
             let currentTab = 0;
             const tabs = ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step10', '#step8', '#step9'];
             
+            // تحديث حالة الأزرار عند بدء التحميل
+            $('#submitBtn').hide();
+            
             function showTab(n) {
-                $(tabs[currentTab]).removeClass('show active');
+                currentTab = n;
+                
+                // إظهار التاب الحالي
+                $('.tab-pane').removeClass('show active');
                 $(tabs[n]).addClass('show active');
+                
+                // تحديث التبويبات
                 $('.nav-link').removeClass('active');
                 $(`[data-bs-target="${tabs[n]}"]`).addClass('active');
                 
-                currentTab = n;
-                
-                if (currentTab === 0) {
+                // تحديث حالة الأزرار
+                if (n === 0) {
                     $('#prevBtn').hide();
                 } else {
                     $('#prevBtn').show();
                 }
                 
-                if (currentTab === tabs.length - 1) {
+                if (n === (tabs.length - 1)) {
                     $('#nextBtn').hide();
                     $('#submitBtn').show();
                 } else {
@@ -633,6 +814,16 @@ ini_set('display_errors', 1);
                 }
             }
 
+            // معالجة النقر على التبويبات
+            $('.nav-link').click(function() {
+                const targetTab = $(this).attr('data-bs-target');
+                const tabIndex = tabs.indexOf(targetTab);
+                if (tabIndex !== -1) {
+                    showTab(tabIndex);
+                }
+            });
+
+            // تحديث التنقل بين التبويبات
             $('#nextBtn').click(function() {
                 if (currentTab < tabs.length - 1) {
                     showTab(currentTab + 1);
@@ -645,14 +836,8 @@ ini_set('display_errors', 1);
                 }
             });
 
-            $('.nav-link').click(function() {
-                const targetTab = $(this).data('bs-target');
-                currentTab = tabs.indexOf(targetTab);
-                showTab(currentTab);
-            });
-
-            // إخفاء زر "السابق" في البداية
-            $('#prevBtn').hide();
+            // عرض التبويب الأول عند بدء التحميل
+            showTab(0);
 
             // معالجة تقديم النموذج
             $('#finalPlansForm').on('submit', function(e) {
@@ -848,6 +1033,197 @@ ini_set('display_errors', 1);
                     $('input[name="ceiling_reinforcement_other_text"]').prop('required', false);
                 }
             });
+
+            function isQuestionComplete(questionDiv) {
+                // التحقق من وجود حقول مطلوبة في هذا السؤال
+                const requiredInputs = $(questionDiv).find('[required]');
+                if (requiredInputs.length === 0) {
+                    return false;
+                }
+
+                let isComplete = true;
+                const radioGroups = new Set();
+                const checkboxGroups = new Set();
+
+                requiredInputs.each(function() {
+                    const input = $(this);
+                    const inputType = input.attr('type');
+                    const name = input.attr('name');
+
+                    if (inputType === 'radio') {
+                        radioGroups.add(name);
+                    } else if (inputType === 'checkbox') {
+                        checkboxGroups.add(name.replace('[]', ''));
+                    } else if (!input.val().trim()) {
+                        isComplete = false;
+                        return false;
+                    }
+                });
+
+                // التحقق من مجموعات الراديو
+                for (let name of radioGroups) {
+                    if (!$(`input[name="${name}"]:checked`).length) {
+                        isComplete = false;
+                        break;
+                    }
+                }
+
+                // التحقق من مجموعات الCheckbox
+                for (let name of checkboxGroups) {
+                    if (!$(`input[name="${name}[]"]:checked`).length) {
+                        isComplete = false;
+                        break;
+                    }
+                }
+
+                return isComplete;
+            }
+
+            function updateTabQuestionCount(tabId) {
+                const tab = $(tabId);
+                const questions = tab.find('.mb-4');
+                let totalQuestions = 0;
+                let completedQuestions = 0;
+
+                questions.each(function() {
+                    // التحقق من أن هذا القسم يحتوي على حقول مطلوبة
+                    if ($(this).find('[required]').length > 0) {
+                        totalQuestions++;
+                        if (isQuestionComplete(this)) {
+                            completedQuestions++;
+                        }
+                    }
+                });
+
+                const counterElement = $(`button[data-bs-target="${tabId}"] .questions-counter`);
+                if (totalQuestions > 0) {
+                    counterElement.text(`${completedQuestions}/${totalQuestions}`);
+                    if (completedQuestions === totalQuestions) {
+                        counterElement.css('background-color', '#d1e7dd').css('color', '#0a3622');
+                    } else {
+                        counterElement.css('background-color', '#e9ecef').css('color', '#495057');
+                    }
+                } else {
+                    counterElement.text('0/0');
+                    counterElement.css('background-color', '#e9ecef').css('color', '#495057');
+                }
+            }
+
+            function updateAllTabsCount() {
+                ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step10', '#step8', '#step9'].forEach(tabId => {
+                    updateTabQuestionCount(tabId);
+                });
+            }
+
+            // تحديث العداد عند تغيير أي حقل
+            $(document).on('change', 'input, select, textarea', function() {
+                updateAllTabsCount();
+            });
+
+            // التحديث الأولي
+            updateAllTabsCount();
+
+            function checkTabCompletion(tabId) {
+                const tab = $(tabId);
+                const questions = tab.find('.mb-4');
+                let totalQuestions = 0;
+                let completedQuestions = 0;
+
+                questions.each(function() {
+                    if ($(this).find('[required]').length > 0) {
+                        totalQuestions++;
+                        if (isQuestionComplete(this)) {
+                            completedQuestions++;
+                        }
+                    }
+                });
+
+                return {
+                    total: totalQuestions,
+                    completed: completedQuestions,
+                    isComplete: totalQuestions > 0 && completedQuestions === totalQuestions
+                };
+            }
+
+            function highlightIncompleteTabs() {
+                const tabs = ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step10', '#step8', '#step9'];
+                let hasIncomplete = false;
+
+                tabs.forEach(tabId => {
+                    const status = checkTabCompletion(tabId);
+                    const navLink = $(`button[data-bs-target="${tabId}"]`);
+                    const counter = navLink.find('.questions-counter');
+
+                    if (status.total > 0) {
+                        if (status.isComplete) {
+                            navLink.removeClass('incomplete').addClass('complete');
+                            counter.removeClass('incomplete').addClass('complete');
+                        } else {
+                            navLink.removeClass('complete').addClass('incomplete');
+                            counter.removeClass('complete').addClass('incomplete');
+                            hasIncomplete = true;
+                        }
+                    }
+                });
+
+                return hasIncomplete;
+            }
+
+            // إضافة التحقق عند الضغط على زر الإرسال
+            $('#finalPlansForm').on('submit', function(e) {
+                const hasIncomplete = highlightIncompleteTabs();
+                
+                if (hasIncomplete) {
+                    e.preventDefault();
+                    
+                    // إضافة تأثير الاهتزاز للزر والنموذج
+                    $('#submitBtn, .form-container').addClass('shake');
+                    
+                    // إزالة الكلاسات بعد انتهاء التأثير
+                    setTimeout(() => {
+                        $('#submitBtn, .form-container').removeClass('shake');
+                    }, 500);
+
+                    // البحث عن أول تبويب غير مكتمل
+                    const firstIncompleteTab = $('button.nav-link.incomplete').first();
+                    if (firstIncompleteTab.length) {
+                        const tabId = firstIncompleteTab.attr('data-bs-target');
+                        
+                        // تفعيل التبويب
+                        firstIncompleteTab.click();
+                        
+                        // إزالة التمييز السابق
+                        $('.question-incomplete').removeClass('question-incomplete');
+                        
+                        // البحث عن أول سؤال غير مكتمل في هذا التبويب
+                        const firstIncompleteQuestion = findFirstIncompleteQuestion(tabId);
+                        if (firstIncompleteQuestion) {
+                            $(firstIncompleteQuestion).addClass('question-incomplete');
+                            
+                            // الانتقال إلى السؤال مع تأثير سلس
+                            setTimeout(() => {
+                                $('html, body').animate({
+                                    scrollTop: $(firstIncompleteQuestion).offset().top - 100
+                                }, 500);
+                            }, 300);
+                        }
+                    }
+                }
+            });
+
+            function findFirstIncompleteQuestion(tabId) {
+                const questions = $(`${tabId} .mb-4`);
+                let firstIncomplete = null;
+
+                questions.each(function() {
+                    if ($(this).find('[required]').length > 0 && !isQuestionComplete(this)) {
+                        firstIncomplete = this;
+                        return false; // للخروج من الحلقة
+                    }
+                });
+
+                return firstIncomplete;
+            }
         });
     </script>
 </body>
