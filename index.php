@@ -49,172 +49,53 @@
         }
         .form-text {
             color: #6c757d;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
         }
-        .custom-radio-group .form-check {
-            margin-bottom: 10px;
+        .form-navigation {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
         }
-        /* أنماط التبويبات العمودية */
-        .vertical-tabs {
+        .step-indicator {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #6c757d;
+        }
+        .step-buttons {
             display: flex;
-            min-height: 500px;
-            margin: 20px 0;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .tabs-navigation {
-            width: 280px;
-            background: #f8f9fa;
-            border-radius: 10px 0 0 10px;
-            border-right: 1px solid #dee2e6;
-            padding: 20px 0;
-        }
-        .tab-content {
-            flex: 1;
-            padding: 25px;
-            background: #fff;
-            border-radius: 0 10px 10px 0;
-        }
-        /* أنماط الروابط */
-        .nav-pills .nav-link {
-            padding: 12px 20px;
-            color: #495057;
-            border-right: 3px solid transparent;
-            border-radius: 0;
-            margin: 5px 0;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
+            justify-content: space-between;
             gap: 10px;
         }
-        .nav-pills .nav-link:hover {
-            background: #e9ecef;
-        }
-        .nav-pills .nav-link.active {
-            background: #fff;
-            color: #0d6efd;
-            border-right-color: #0d6efd;
-            font-weight: 600;
-        }
-        /* أنماط الأقسام */
-        .tab-section {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #dee2e6;
-        }
-        .tab-section:last-child {
-            border-bottom: none;
-        }
-        .tab-section-title {
-            color: #6c757d;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 10px 20px;
-        }
-        .progress-indicator {
-            position: fixed;
-            top: 0;
-            right: 0;
-            padding: 10px 20px;
-            background: #fff;
-            border-radius: 0 0 0 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        .completion-text {
-            font-weight: 600;
-            color: #0d6efd;
-        }
-        /* نمط مجموعة الأسئلة */
-        .mb-4 {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px !important;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        /* نمط عداد الأسئلة */
         .questions-counter {
-            background-color: #e9ecef;
+            display: inline-block;
             padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            color: #495057;
             margin-right: 8px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            background-color: #e9ecef;
+            color: #495057;
+        }
+        .custom-radio-group,
+        .custom-check-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .form-check {
+            margin-bottom: 8px;
+        }
+        .form-check-label {
+            color: #495057;
+            cursor: pointer;
+        }
+        .btn {
+            padding: 8px 20px;
             font-weight: 600;
         }
-        .nav-link .questions-counter {
-            margin-right: auto;
-        }
-        /* أنماط حالة التبويبات */
-        .nav-link.incomplete {
-            color: #dc3545 !important;
-            background-color: #f8d7da !important;
-        }
-        .nav-link.complete {
-            color: #198754 !important;
-            background-color: #d1e7dd !important;
-        }
-        .questions-counter.incomplete {
-            background-color: #dc3545 !important;
-            color: #fff !important;
-        }
-        .questions-counter.complete {
-            background-color: #198754 !important;
-            color: #fff !important;
-        }
-        /* تأثير الاهتزاز */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-        .shake {
-            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
-        }
-        /* تمييز السؤال غير المكتمل */
-        .question-incomplete {
-            border: 2px solid #dc3545 !important;
-            background-color: #fff5f5 !important;
-            padding: 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-        /* تنسيق قائمة الأسئلة غير المكتملة */
-        #incompleteQuestionsList {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
+        .alert {
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            max-width: 80%;
-            max-height: 80vh;
-            overflow-y: auto;
-            direction: rtl;
-        }
-        #incompleteQuestionsList h3 {
-            color: #dc3545;
-            margin-bottom: 15px;
-        }
-        .incomplete-question-link {
-            display: block;
-            padding: 8px;
-            margin: 5px 0;
-            color: #dc3545;
-            cursor: pointer;
-            text-decoration: none;
-            border-bottom: 1px solid #eee;
-        }
-        .incomplete-question-link:hover {
-            background: #f8f9fa;
+            margin-bottom: 20px;
         }
         .modal-overlay {
             display: none;
@@ -226,17 +107,6 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
         }
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
         #incompleteQuestionsList {
             display: none;
             position: fixed;
@@ -247,55 +117,46 @@
             padding: 20px;
             border-radius: 8px;
             z-index: 1001;
-            width: 90%;
-            max-width: 600px;
+            max-width: 90%;
+            width: 500px;
             max-height: 80vh;
             overflow-y: auto;
-            direction: rtl;
         }
-
-        .questions-container {
-            margin-top: 15px;
+        .answers-summary {
+            max-width: 800px;
+            margin: 0 auto;
         }
-
-        .incomplete-question-link {
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            background: #f8f9fa;
-            border-radius: 4px;
-            color: #dc3545;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .incomplete-question-link:hover {
-            background: #e9ecef;
-        }
-
-        .question-incomplete {
-            animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-            perspective: 1000px;
-            border: 2px solid #dc3545;
+        .answer-item {
+            background-color: #f8f9fa;
             border-radius: 8px;
             padding: 15px;
+            margin-bottom: 15px;
+            border-right: 4px solid #0d6efd;
         }
-
-        @keyframes shake {
-            10%, 90% { transform: translate3d(-1px, 0, 0); }
-            20%, 80% { transform: translate3d(2px, 0, 0); }
-            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-            40%, 60% { transform: translate3d(4px, 0, 0); }
+        .answer-item .question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .answer-item .answer {
+            color: #0d6efd;
+        }
+        .no-answers {
+            text-align: center;
+            color: #6c757d;
+            padding: 20px;
+        }
+        .file-info {
+            font-family: monospace;
+            background-color: #f8f9fa;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container mt-4">
-        <div class="progress-indicator">
-            <span class="completion-text">0% مكتمل</span>
-        </div>
         <div class="form-container">
             <h2 class="text-center mb-4">استمارة المخططات النهائية</h2>
             <p class="text-muted text-center mb-4">الرجاء تزويدنا بالمعلومات اللازمة لإعداد المخططات النهائية. نود الإحاطة بأن أي تعديلات على المواصفات بعد تجهيز المخططات ستستلزم رسوماً إضافية</p>
@@ -305,61 +166,56 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#step1">
                             معلومات أساسية
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step2">
                             الوحدات والعزل
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step3">
                             الارتفاعات
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step4">
                             الأنظمة الذكية
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step5">
                             التكييف
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step6">
                             خزانات المياه
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step7">
                             السباكة
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step8">
                             الأعمال الإنشائية
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step10">
                             مواصفات المصعد
-                            <span class="questions-counter">0/0</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#step9">
                             طلبات إضافية
-                            <span class="questions-counter">0/0</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#answers-summary">
+                            النتيجة
                         </button>
                     </li>
                 </ul>
@@ -389,6 +245,19 @@
                                    placeholder="example@domain.com"
                                    required>
                             <div class="form-text">سيتم إرسال تأكيد استلام الاستمارة والمتابعة على هذا البريد</div>
+                        </div>
+
+                        <div class="mb-4" id="question_2_1">
+                            <label class="form-label">رقم الجوال <span class="required-star">*</span></label>
+                            <input type="tel" 
+                                   class="form-control" 
+                                   name="phone" 
+                                   pattern="05[0-9]{8}"
+                                   maxlength="10"
+                                   placeholder="05xxxxxxxx"
+                                   title="يجب أن يبدأ رقم الجوال بـ 05 ويتكون من 10 أرقام"
+                                   required>
+                            <div class="form-text">سيتم استخدام هذا الرقم للتواصل معك بخصوص المشروع</div>
                         </div>
                     </div>
 
@@ -864,12 +733,28 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- ملخص الإجابات -->
+                    <div class="tab-pane fade" id="answers-summary" role="tabpanel">
+                        <div class="container">
+                            <h3 class="text-center mb-4">النتيجة</h3>
+                            <div id="answers-container" class="answers-summary">
+                                <!-- سيتم ملء هذا القسم ديناميكياً -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="d-flex justify-content-between mt-4">
-                    <button type="button" class="btn btn-secondary" id="prevBtn">السابق</button>
-                    <button type="button" class="btn btn-primary" id="nextBtn">التالي</button>
-                    <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">ارسال النموذج</button>
+                <!-- تحديث قسم الأزرار -->
+                <div class="form-navigation">
+                    <div class="step-indicator">
+                        الخطوة <span id="currentStepNumber">1</span> من <span id="totalSteps">10</span>
+                    </div>
+                    <div class="step-buttons">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">السابق</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">التالي</button>
+                        <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">إرسال النموذج</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -886,49 +771,279 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Sweet Alert 2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
 
+    <script>
+    $(document).ready(function() {
+        let currentTab = 0;
+        const tabs = ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step8', '#step10', '#step9', '#answers-summary'];
+        let formStarted = false;
+
+        // التحقق من صحة الحقول في التبويب الحالي
+        function validateCurrentTab() {
+            const currentTabPane = $(tabs[currentTab]);
+            const requiredFields = currentTabPane.find('[required]');
+            let isValid = true;
+            
+            requiredFields.removeClass('is-invalid');
+            requiredFields.next('.invalid-feedback').remove();
+
+            requiredFields.each(function() {
+                const field = $(this);
+                if (!field.val()) {
+                    isValid = false;
+                    field.addClass('is-invalid');
+                    if (!field.next('.invalid-feedback').length) {
+                        field.after('<div class="invalid-feedback">هذا الحقل مطلوب</div>');
+                    }
+                } else if (field.attr('type') === 'radio') {
+                    const name = field.attr('name');
+                    if (!$(`input[name="${name}"]:checked`).length) {
+                        isValid = false;
+                        field.closest('.custom-radio-group').find('.invalid-feedback').remove();
+                        field.closest('.custom-radio-group').append('<div class="invalid-feedback d-block">يرجى اختيار أحد الخيارات</div>');
+                    }
+                }
+            });
+
+            return isValid;
+        }
+
+        // تحديث أزرار التنقل مع إضافة حالة الإكمال
+        function updateNavigationButtons() {
+            const isLastTab = currentTab === tabs.length - 1;
+            $('#prevBtn').toggle(currentTab > 0);
+            $('#nextBtn').toggle(!isLastTab);
+            $('#submitBtn').toggle(isLastTab);
+            
+            // تحديث حالة الأزرار في شريط التنقل
+            $('.nav-tabs .nav-link').removeClass('completed current');
+            for (let i = 0; i < currentTab; i++) {
+                $(`button[data-bs-target="${tabs[i]}"]`).addClass('completed');
+            }
+            $(`button[data-bs-target="${tabs[currentTab]}"]`).addClass('current');
+        }
+
+        // تحديث مؤشر التقدم
+        function updateProgress() {
+            $('#currentStepNumber').text(currentTab + 1);
+            $('#totalSteps').text(tabs.length);
+            $('.progress-bar').css('width', Math.round((currentTab / (tabs.length - 1)) * 100) + '%').attr('aria-valuenow', Math.round((currentTab / (tabs.length - 1)) * 100));
+        }
+
+        // زر التالي مع التحقق
+        $('#nextBtn').click(function() {
+            if (validateCurrentTab()) {
+                if (currentTab < tabs.length - 1) {
+                    $(tabs[currentTab]).removeClass('show active');
+                    currentTab++;
+                    $(tabs[currentTab]).addClass('show active');
+                    $(`button[data-bs-target="${tabs[currentTab]}"]`).tab('show');
+                    updateNavigationButtons();
+                    updateProgress();
+                    $('html, body').animate({ scrollTop: 0 }, 'smooth');
+                }
+            } else {
+                Swal.fire({
+                    title: 'تنبيه',
+                    text: 'يرجى ملء جميع الحقول المطلوبة قبل المتابعة',
+                    icon: 'warning',
+                    confirmButtonText: 'حسناً'
+                });
+            }
+        });
+
+        // زر السابق محدث
+        $('#prevBtn').click(function() {
+            if (currentTab > 0) {
+                $(tabs[currentTab]).removeClass('show active');
+                currentTab--;
+                $(tabs[currentTab]).addClass('show active');
+                $(`button[data-bs-target="${tabs[currentTab]}"]`).tab('show');
+                updateNavigationButtons();
+                updateProgress();
+                $('html, body').animate({ scrollTop: 0 }, 'smooth');
+            }
+        });
+
+        // التحقق من الحقول عند تغيير قيمتها
+        $('input, select, textarea').on('change input', function() {
+            const field = $(this);
+            if (field.val()) {
+                field.removeClass('is-invalid');
+                field.next('.invalid-feedback').remove();
+            }
+        });
+
+        // تهيئة الحالة الأولية
+        updateNavigationButtons();
+        updateProgress();
+    });
+    </script>
+    
+    <script>
+        const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 ميجابايت
+        const ALLOWED_FILE_TYPES = {
+            'application/pdf': 'PDF',
+            'image/jpeg': 'JPEG',
+            'image/png': 'PNG'
+        };
+        
+        // التحقق من صحة رقم الجوال السعودي
+        function isValidSaudiPhone(phone) {
+            const regex = /^(05[0-9]{8})$/;
+            return regex.test(phone);
+        }
+        
+        // التحقق من صحة البريد الإلكتروني
+        function isValidEmail(email) {
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return regex.test(email);
+        }
+        
+        // التحقق من الملف
+        function isValidFile(file) {
+            if (file.size > MAX_FILE_SIZE) {
+                return {
+                    valid: false,
+                    error: `حجم الملف يتجاوز الحد المسموح به (${MAX_FILE_SIZE / 1024 / 1024} ميجابايت)`
+                };
+            }
+            
+            if (!ALLOWED_FILE_TYPES[file.type]) {
+                return {
+                    valid: false,
+                    error: `نوع الملف غير مسموح به. الأنواع المسموحة: ${Object.values(ALLOWED_FILE_TYPES).join(', ')}`
+                };
+            }
+            
+            return { valid: true };
+        }
+        
+        $(document).ready(function() {
+            // إضافة خصائص التحقق لحقل رقم الجوال
+            $('input[name="phone"]').attr({
+                'pattern': '05[0-9]{8}',
+                'maxlength': '10',
+                'title': 'يجب أن يبدأ رقم الجوال بـ 05 ويتكون من 10 أرقام'
+            }).on('input', function() {
+                const phone = $(this).val();
+                if (phone && !isValidSaudiPhone(phone)) {
+                    $(this).addClass('is-invalid');
+                    if (!$(this).next('.invalid-feedback').length) {
+                        $(this).after('<div class="invalid-feedback">يجب إدخال رقم جوال سعودي صحيح يبدأ بـ 05</div>');
+                    }
+                } else {
+                    $(this).removeClass('is-invalid');
+                    $(this).next('.invalid-feedback').remove();
+                }
+            });
+            
+            // إضافة خصائص التحقق لحقل البريد الإلكتروني
+            $('input[type="email"]').on('input', function() {
+                const email = $(this).val();
+                if (email && !isValidEmail(email)) {
+                    $(this).addClass('is-invalid');
+                    if (!$(this).next('.invalid-feedback').length) {
+                        $(this).after('<div class="invalid-feedback">يرجى إدخال بريد إلكتروني صحيح</div>');
+                    }
+                } else {
+                    $(this).removeClass('is-invalid');
+                    $(this).next('.invalid-feedback').remove();
+                }
+            });
+            
+            // إضافة التحقق من الملفات
+            $('input[type="file"]').attr({
+                'accept': Object.keys(ALLOWED_FILE_TYPES).join(',')
+            }).on('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const validation = isValidFile(file);
+                    if (!validation.valid) {
+                        $(this).addClass('is-invalid');
+                        if (!$(this).next('.invalid-feedback').length) {
+                            $(this).after(`<div class="invalid-feedback">${validation.error}</div>`);
+                        }
+                        // إفراغ حقل الملف
+                        $(this).val('');
+                    } else {
+                        $(this).removeClass('is-invalid');
+                        $(this).next('.invalid-feedback').remove();
+                    }
+                }
+            });
+        });
+    </script>
+    
     <script>
         $(document).ready(function() {
             let currentTab = 0;
-            const tabs = ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step8', '#step10', '#step9'];
+            const tabs = ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step8', '#step10', '#step9', '#answers-summary'];
             
-            // دوال التحقق من اكتمال النموذج
-            
-            // التحقق من اكتمال سؤال واحد
-            function isQuestionComplete(questionDiv) {
-                const $question = $(questionDiv);
+            // تحديث عداد الأسئلة للتبويب
+            function updateTabCount(tabId) {
+                if (!formStarted) return;
                 
-                // التحقق من الحقول المطلوبة
+                const tab = $(tabId);
+                const questions = tab.find('.mb-4');
+                let totalQuestions = 0;
+                let completedQuestions = 0;
+
+                questions.each(function() {
+                    if ($(this).find('[required]').length > 0) {
+                        totalQuestions++;
+                        if (isQuestionComplete(this)) {
+                            completedQuestions++;
+                        }
+                    }
+                });
+
+                const navLink = $(`button[data-bs-target="${tabId}"]`);
+                const counter = navLink.find('.questions-counter');
+                
+                counter.text(`${completedQuestions}/${totalQuestions}`);
+                
+                if (totalQuestions > 0) {
+                    if (completedQuestions === totalQuestions) {
+                        navLink.removeClass('incomplete').addClass('complete');
+                        counter.removeClass('incomplete').addClass('complete');
+                    } else {
+                        navLink.removeClass('complete').addClass('incomplete');
+                        counter.removeClass('complete').addClass('incomplete');
+                    }
+                }
+            }
+
+            // تحديث جميع العدادات
+            function updateAllTabsCount() {
+                if (!formStarted) return;
+                tabs.forEach(tabId => updateTabCount(tabId));
+            }
+
+            // التحقق من اكتمال سؤال
+            function isQuestionComplete(questionDiv) {
+                if (!formStarted) return true;
+                
+                const $question = $(questionDiv);
                 const requiredInputs = $question.find('[required]');
                 let isComplete = true;
 
                 requiredInputs.each(function() {
                     const input = $(this);
-                    
                     if (input.is('input[type="radio"]') || input.is('input[type="checkbox"]')) {
-                        // للراديو والتشيك بوكس
                         const name = input.attr('name');
-                        const checked = $question.find(`input[name="${name}"]:checked`).length;
-                        if (!checked) {
+                        if (!$(`input[name="${name}"]:checked`).length) {
                             isComplete = false;
                             return false;
                         }
                     } else if (input.is('select')) {
-                        // للقوائم المنسدلة
                         if (!input.val()) {
                             isComplete = false;
                             return false;
                         }
-                    } else if (input.is('input[type="file"]')) {
-                        // للملفات
-                        if (!input.get(0).files.length) {
-                            isComplete = false;
-                            return false;
-                        }
                     } else {
-                        // للحقول النصية
                         if (!input.val().trim()) {
                             isComplete = false;
                             return false;
@@ -936,392 +1051,37 @@
                     }
                 });
 
-                // التحقق من خيارات المصعد إذا كانت موجودة
-                const elevatorChecks = $question.find('input[name="elevator_specs[]"]');
-                if (elevatorChecks.length > 0) {
-                    isComplete = elevatorChecks.filter(':checked').length > 0;
-                }
-
                 return isComplete;
             }
 
-            // التحقق من اكتمال تبويب
-            function checkTabCompletion(tabId) {
-                const tab = $(tabId);
-                const questions = tab.find('.mb-4');
-                let totalQuestions = 0;
-                let completedQuestions = 0;
-
-                questions.each(function() {
-                    if ($(this).find('[required]').length > 0 || $(this).find('input[name="elevator_specs[]"]').length > 0) {
-                        totalQuestions++;
-                        if (isQuestionComplete(this)) {
-                            completedQuestions++;
-                        }
+            // زر التالي
+            $('#nextBtn').click(function() {
+                formStarted = true;
+                if (validateCurrentTab()) {
+                    if (currentTab < tabs.length - 1) {
+                        $(tabs[currentTab]).removeClass('show active');
+                        currentTab++;
+                        $(tabs[currentTab]).addClass('show active');
+                        $(`button[data-bs-target="${tabs[currentTab]}"]`).tab('show');
+                        updateNavigationButtons();
+                        updateProgress();
+                        updateAllTabsCount();
                     }
-                });
-
-                return {
-                    total: totalQuestions,
-                    completed: completedQuestions,
-                    isComplete: totalQuestions > 0 && completedQuestions === totalQuestions
-                };
-            }
-
-            // تحديث حالة جميع التبويبات
-            function highlightIncompleteTabs() {
-                const tabs = ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step8', '#step10', '#step9'];
-                let hasIncomplete = false;
-
-                tabs.forEach(tabId => {
-                    const status = checkTabCompletion(tabId);
-                    const navLink = $(`button[data-bs-target="${tabId}"]`);
-                    const counter = navLink.find('.questions-counter');
-
-                    if (status.total > 0) {
-                        if (status.isComplete) {
-                            navLink.removeClass('incomplete').addClass('complete');
-                            counter.removeClass('incomplete').addClass('complete');
-                        } else {
-                            navLink.removeClass('complete').addClass('incomplete');
-                            counter.removeClass('complete').addClass('incomplete');
-                            hasIncomplete = true;
-                        }
-                    }
-                });
-
-                return hasIncomplete;
-            }
-
-            // معالجة إرسال النموذج
-            $('#finalPlansForm').on('submit', function(e) {
-                e.preventDefault(); // منع الإرسال الافتراضي
-                
-                // إعادة تعيين حالة الأخطاء
-                $('.form-control, .form-select, .form-check-input').removeClass('is-invalid');
-                $('.invalid-feedback').remove();
-                
-                // جمع الأسئلة غير المكتملة
-                const incompleteQuestions = [];
-                let isValid = true;
-
-                // التحقق من كل تبويب
-                tabs.forEach((tabId, index) => {
-                    const $tab = $(tabId);
-                    
-                    // التحقق من الحقول المطلوبة
-                    $tab.find('[required]').each(function() {
-                        const $field = $(this);
-                        const $question = $field.closest('.mb-4');
-                        const questionLabel = $question.find('.form-label').text().trim();
-                        
-                        let fieldValid = true;
-                        
-                        // التحقق من نوع الحقل
-                        if ($field.is(':radio, :checkbox')) {
-                            const name = $field.attr('name');
-                            if (!$(`[name="${name}"]:checked`).length) {
-                                fieldValid = false;
-                            }
-                        } else if ($field.is('select')) {
-                            if (!$field.val() || $field.val() === '') {
-                                fieldValid = false;
-                            }
-                        } else {
-                            if (!$field.val().trim()) {
-                                fieldValid = false;
-                            }
-                        }
-                        
-                        if (!fieldValid) {
-                            isValid = false;
-                            $field.addClass('is-invalid');
-                            
-                            // إضافة رسالة خطأ
-                            if (!$field.next('.invalid-feedback').length) {
-                                $field.after(`<div class="invalid-feedback">هذا الحقل مطلوب</div>`);
-                            }
-                            
-                            // إضافة السؤال إلى قائمة غير المكتملة
-                            if (!incompleteQuestions.includes(questionLabel)) {
-                                incompleteQuestions.push(questionLabel);
-                            }
-                            
-                            // تمييز التبويب كغير مكتمل
-                            $(`.nav-link[data-bs-target="${tabId}"]`).addClass('incomplete');
-                        }
-                    });
-                });
-
-                if (!isValid) {
-                    // عرض قائمة الأسئلة غير المكتملة
-                    const $list = $('#incompleteQuestionsList');
-                    const $overlay = $('.modal-overlay');
-                    
-                    let questionsHtml = '<h4>الأسئلة غير المكتملة:</h4><ul>';
-                    incompleteQuestions.forEach(q => {
-                        questionsHtml += `<li>${q}</li>`;
-                    });
-                    questionsHtml += '</ul>';
-                    questionsHtml += '<button class="btn btn-primary mt-3" onclick="closeIncompleteList()">حسناً</button>';
-                    
-                    $list.html(questionsHtml);
-                    $list.show();
-                    $overlay.show();
-                    
-                    // التمرير إلى أول سؤال غير مكتمل
-                    const $firstIncomplete = $('.is-invalid').first();
-                    if ($firstIncomplete.length) {
-                        const $tab = $firstIncomplete.closest('.tab-pane');
-                        const tabId = $tab.attr('id');
-                        
-                        // تفعيل التبويب المحتوي على الخطأ
-                        $(`.nav-link[data-bs-target="#${tabId}"]`).tab('show');
-                        
-                        // التمرير إلى الحقل
-                        $('html, body').animate({
-                            scrollTop: $firstIncomplete.offset().top - 100
-                        }, 500);
-                    }
-                    
-                    return false;
                 }
-
-                // إذا كان النموذج صحيحاً، قم بإرساله
-                const formData = new FormData(this);
-                
-                // تعطيل زر الإرسال لمنع الإرسال المتكرر
-                $('#submitBtn').prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> جاري الإرسال...');
-                
-                // إرسال النموذج
-                $.ajax({
-                    url: $(this).attr('action'),
-                    method: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        if (response.status === 'success') {
-                            // عرض رسالة النجاح
-                            Swal.fire({
-                                title: 'تم الإرسال بنجاح!',
-                                text: 'شكراً لك. سنقوم بمراجعة طلبك والرد عليك قريباً.',
-                                icon: 'success',
-                                confirmButtonText: 'حسناً'
-                            }).then((result) => {
-                                // إعادة تحميل الصفحة بعد الإرسال الناجح
-                                window.location.reload();
-                            });
-                        } else {
-                            throw new Error(response.message || 'حدث خطأ غير متوقع');
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        // عرض رسالة الخطأ
-                        Swal.fire({
-                            title: 'خطأ!',
-                            text: xhr.responseJSON?.message || 'حدث خطأ أثناء إرسال النموذج. الرجاء المحاولة مرة أخرى.',
-                            icon: 'error',
-                            confirmButtonText: 'حسناً'
-                        });
-                    },
-                    complete: function() {
-                        // إعادة تفعيل زر الإرسال
-                        $('#submitBtn').prop('disabled', false).text('إرسال النموذج');
-                    }
-                });
-            });
-            
-            // معالجة النقر على سؤال غير مكتمل
-            $(document).on('click', '.incomplete-question-link', function() {
-                const tabId = $(this).data('tab');
-                const questionId = $(this).data('question-id');
-                
-                // تفعيل التبويب المطلوب
-                $(`button[data-bs-target="${tabId}"]`).click();
-                
-                // الانتقال إلى السؤال
-                const questionElement = $(`#${questionId}`);
-                if (questionElement.length) {
-                    // إزالة التمييز السابق
-                    $('.question-incomplete').removeClass('question-incomplete');
-                    
-                    // تمييز السؤال الحالي
-                    questionElement.addClass('question-incomplete');
-                    
-                    // الانتقال إلى السؤال
-                    setTimeout(() => {
-                        $('html, body').animate({
-                            scrollTop: questionElement.offset().top - 100
-                        }, 500);
-                    }, 300);
-                }
-                
-                // إخفاء القائمة
-                $('.modal-overlay, #incompleteQuestionsList').hide();
-            });
-            
-            // إغلاق القائمة عند النقر خارجها
-            $('.modal-overlay').click(function() {
-                $('.modal-overlay, #incompleteQuestionsList').hide();
             });
 
-            // التحقق من اختيار خيار واحد على الأقل للمصعد
-            $('.elevator-check').change(function() {
+            // إضافة مراقب للتفاعل مع النموذج
+            $('#finalPlansForm').on('input change', 'input, select, textarea', function() {
+                if (!formStarted) formStarted = true;
                 updateAllTabsCount();
             });
-
-            // إظهار/إخفاء حقل الإدخال الإضافي للتكييف
-            $('#ac_other_checkbox').change(function() {
-                if ($(this).is(':checked')) {
-                    $('#ac_other_input').show();
-                    $('input[name="ac_concealed_other"]').prop('required', true);
-                } else {
-                    $('#ac_other_input').hide();
-                    $('input[name="ac_concealed_other"]').prop('required', false);
-                }
-            });
-
-            // إظهار/إخفاء حقول الإدخال الإضافية للخزانات
-            $('#external_tank_other').change(function() {
-                if ($(this).is(':checked')) {
-                    $('#external_tank_other_input').show();
-                    $('input[name="external_tank_other_text"]').prop('required', true);
-                } else {
-                    $('#external_tank_other_input').hide();
-                    $('input[name="external_tank_other_text"]').prop('required', false);
-                }
-            });
-
-            $('#roof_tank_other').change(function() {
-                if ($(this).is(':checked')) {
-                    $('#roof_tank_other_input').show();
-                    $('input[name="roof_tank_other_text"]').prop('required', true);
-                } else {
-                    $('#roof_tank_other_input').hide();
-                    $('input[name="roof_tank_other_text"]').prop('required', false);
-                }
-            });
-
-            $('#drinking_water_other').change(function() {
-                if ($(this).is(':checked')) {
-                    $('#drinking_water_other_input').show();
-                    $('input[name="drinking_water_other_text"]').prop('required', true);
-                } else {
-                    $('#drinking_water_other_input').hide();
-                    $('input[name="drinking_water_other_text"]').prop('required', false);
-                }
-            });
-
-            // إظهار/إخفاء حقول الإدخال الإضافية لأعمال السباكة
-            $('#sewage_tank_other, #toilet_type_other, #water_heater_other, #pool_type_other').change(function() {
-                const inputId = $(this).attr('id');
-                const otherInputDiv = '#' + inputId + '_input';
-                const otherInputField = 'input[name="' + inputId + '_text"]';
-                
-                if ($(this).is(':checked')) {
-                    $(otherInputDiv).show();
-                    $(otherInputField).prop('required', true);
-                } else {
-                    $(otherInputDiv).hide();
-                    $(otherInputField).prop('required', false);
-                }
-            });
-
-            // إظهار/إخفاء حقل الإدخال الإضافي لكرسي الحمام
-            $('#toilet_type').change(function() {
-                if ($(this).val() === 'other') {
-                    $('#toilet_type_other_input').show();
-                    $('input[name="toilet_type_other_text"]').prop('required', true);
-                } else {
-                    $('#toilet_type_other_input').hide();
-                    $('input[name="toilet_type_other_text"]').prop('required', false);
-                }
-            });
-
-            // إظهار/إخفاء حقل الإدخال الإضافي لسخان الماء
-            $('#water_heater').change(function() {
-                if ($(this).val() === 'other') {
-                    $('#water_heater_other_input').show();
-                    $('input[name="water_heater_other_text"]').prop('required', true);
-                } else {
-                    $('#water_heater_other_input').hide();
-                    $('input[name="water_heater_other_text"]').prop('required', false);
-                }
-            });
-
-            // إظهار/إخفاء حقل الإدخال الإضافي لنوع المسبح
-            $('#pool_type').change(function() {
-                if ($(this).val() === 'other') {
-                    $('#pool_type_other_input').show();
-                    $('input[name="pool_type_other_text"]').prop('required', true);
-                } else {
-                    $('#pool_type_other_input').hide();
-                    $('input[name="pool_type_other_text"]').prop('required', false);
-                }
-            });
-
-            // إظهار/إخفاء حقل الإدخال الإضافي لتصميم القواعد
-            $('#foundation_design').change(function() {
-                if ($(this).val() === 'other') {
-                    $('#foundation_design_other_input').show();
-                    $('input[name="foundation_design_other_text"]').prop('required', true);
-                } else {
-                    $('#foundation_design_other_input').hide();
-                    $('input[name="foundation_design_other_text"]').prop('required', false);
-                }
-            });
-
-            // إظهار/إخفاء حقل الإدخال الإضافي لتصميم تسليح الأسقف
-            $('#ceiling_reinforcement').change(function() {
-                if ($(this).val() === 'other') {
-                    $('#ceiling_reinforcement_other_input').show();
-                    $('input[name="ceiling_reinforcement_other_text"]').prop('required', true);
-                } else {
-                    $('#ceiling_reinforcement_other_input').hide();
-                    $('input[name="ceiling_reinforcement_other_text"]').prop('required', false);
-                }
-            });
-
-            function updateAllTabsCount() {
-                ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step8', '#step10', '#step9'].forEach(tabId => {
-                    updateTabCount(tabId);
-                });
-            }
-
-            // تحديث عداد الأسئلة
-            function updateTabCount(tabId) {
-                const tab = $(tabId);
-                const questions = tab.find('.mb-4');
-                let totalQuestions = 0;
-                let completedQuestions = 0;
-
-                questions.each(function() {
-                    if ($(this).find('[required]').length > 0 || $(this).find('input[name="elevator_specs[]"]').length > 0) {
-                        totalQuestions++;
-                        if (isQuestionComplete(this)) {
-                            completedQuestions++;
-                        }
-                    }
-                });
-
-                const counterElement = $(`button[data-bs-target="${tabId}"] .questions-counter`);
-                if (totalQuestions > 0) {
-                    if (completedQuestions === totalQuestions) {
-                        counterElement.text(`${completedQuestions}/${totalQuestions}`);
-                        counterElement.css('background-color', '#d1e7dd').css('color', '#0a3622');
-                    } else {
-                        counterElement.text(`${completedQuestions}/${totalQuestions}`);
-                        counterElement.css('background-color', '#e9ecef').css('color', '#495057');
-                    }
-                } else {
-                    counterElement.text('0/0');
-                    counterElement.css('background-color', '#e9ecef').css('color', '#495057');
-                }
-            }
-
-            // التحديث الأولي
-            updateAllTabsCount();
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            let currentTab = 0;
+            const tabs = ['#step1', '#step2', '#step3', '#step4', '#step5', '#step6', '#step7', '#step8', '#step10', '#step9', '#answers-summary'];
             
             // تحديث أزرار التنقل
             function updateNavigationButtons() {
@@ -1329,26 +1089,15 @@
                 $('#prevBtn').toggle(currentTab > 0);
                 $('#nextBtn').toggle(!isLastTab);
                 $('#submitBtn').toggle(isLastTab);
-                
-                // تحديث النص على الزر
-                if (isLastTab) {
-                    $('#submitBtn').show();
-                    $('#nextBtn').hide();
-                } else {
-                    $('#submitBtn').hide();
-                    $('#nextBtn').show();
-                }
             }
 
-            // عند النقر على أي تبويب
-            $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
-                const targetId = $(e.target).data('bs-target');
-                currentTab = tabs.indexOf(targetId);
-                updateNavigationButtons();
-                updateProgress();
-            });
+            // تحديث مؤشر التقدم
+            function updateProgress() {
+                $('#currentStepNumber').text(currentTab + 1);
+                $('#totalSteps').text(tabs.length);
+            }
 
-            // عند النقر على زر التالي
+            // زر التالي
             $('#nextBtn').click(function() {
                 if (currentTab < tabs.length - 1) {
                     $(tabs[currentTab]).removeClass('show active');
@@ -1360,7 +1109,7 @@
                 }
             });
 
-            // عند النقر على زر السابق
+            // زر السابق
             $('#prevBtn').click(function() {
                 if (currentTab > 0) {
                     $(tabs[currentTab]).removeClass('show active');
@@ -1372,9 +1121,217 @@
                 }
             });
 
-            // تحديث حالة الأزرار عند بدء التحميل
-            updateNavigationButtons();
+            // معالجة إرسال النموذج
+            $('#finalPlansForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                // التحقق من جميع الحقول المطلوبة
+                let isValid = true;
+                const requiredFields = $(this).find('[required]');
+                const incompleteQuestions = [];
+                
+                requiredFields.each(function() {
+                    const field = $(this);
+                    const questionLabel = field.closest('.mb-4').find('.form-label').first().text().trim();
+                    
+                    if (field.attr('type') === 'radio') {
+                        const name = field.attr('name');
+                        if (!$(`input[name="${name}"]:checked`).length) {
+                            isValid = false;
+                            if (!incompleteQuestions.includes(questionLabel)) {
+                                incompleteQuestions.push(questionLabel);
+                            }
+                        }
+                    } else if (!field.val() || field.val().trim() === '') {
+                        isValid = false;
+                        if (!incompleteQuestions.includes(questionLabel)) {
+                            incompleteQuestions.push(questionLabel);
+                        }
+                    }
+                });
+                
+                if (!isValid) {
+                    const questionsList = incompleteQuestions.map(q => `<li>${q}</li>`).join('');
+                    Swal.fire({
+                        title: 'تنبيه',
+                        html: `
+                            <div class="text-right">
+                                <p>يرجى إكمال الأسئلة التالية قبل إرسال النموذج:</p>
+                                <ul class="text-right" style="list-style-position: inside;">
+                                    ${questionsList}
+                                </ul>
+                            </div>
+                        `,
+                        icon: 'warning',
+                        confirmButtonText: 'حسناً'
+                    });
+                    return;
+                }
+                
+                // إرسال النموذج
+                const formData = new FormData(this);
+                $('#submitBtn').prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> جاري الإرسال...');
+                
+                $.ajax({
+                    url: $(this).attr('action'),
+                    method: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            Swal.fire({
+                                title: 'تم الإرسال بنجاح!',
+                                text: 'شكراً لك. سنقوم بمراجعة طلبك والرد عليك قريباً.',
+                                icon: 'success',
+                                confirmButtonText: 'حسناً'
+                            }).then(() => window.location.reload());
+                        } else {
+                            throw new Error(response.message || 'حدث خطأ غير متوقع');
+                        }
+                    },
+                    error: function(xhr) {
+                        let errorMessage = 'حدث خطأ أثناء إرسال النموذج. الرجاء المحاولة مرة أخرى.';
+                        if (xhr.responseJSON?.errors) {
+                            const errorsList = Object.values(xhr.responseJSON.errors)
+                                .map(error => `<li>${error}</li>`).join('');
+                            errorMessage = `
+                                <div class="text-right">
+                                    <p>يرجى تصحيح الأخطاء التالية:</p>
+                                    <ul class="text-right" style="list-style-position: inside;">
+                                        ${errorsList}
+                                    </ul>
+                                </div>
+                            `;
+                        }
+                        Swal.fire({
+                            title: 'خطأ!',
+                            html: errorMessage,
+                            icon: 'error',
+                            confirmButtonText: 'حسناً'
+                        });
+                    },
+                    complete: function() {
+                        $('#submitBtn').prop('disabled', false).text('إرسال');
+                    }
+                });
+            });
         });
+    </script>
+    
+    <script>
+        function updateAnswersSummary() {
+            const answersContainer = document.getElementById('answers-container');
+            answersContainer.innerHTML = '';
+            
+            let hasAnswers = false;
+            let answersMap = new Map();
+            
+            // قائمة النصوص التي يجب تجاهلها
+            const ignoreTexts = [
+                'اختر إجابة',
+                'اختر نوع كرسي الحمام',
+                'اختر نوع سخان الماء',
+                'اختر نوع المسبح',
+                'اختر عدد الادوار'
+            ];
+            
+            // البحث عن جميع عناصر الإدخال في النموذج
+            const inputs = document.querySelectorAll(`
+                input[type="radio"]:checked, 
+                input[type="checkbox"]:checked, 
+                input[type="text"]:not([value=""]), 
+                input[type="email"]:not([value=""]),
+                input[type="tel"]:not([value=""]),
+                input[type="file"],
+                select:not([value=""]),
+                textarea:not(:empty)
+            `);
+            
+            inputs.forEach(input => {
+                let questionElement = input.closest('.mb-4')?.querySelector('label');
+                if (!questionElement) {
+                    questionElement = input.closest('.form-group')?.querySelector('label') || 
+                                    input.closest('.tab-pane')?.querySelector('h4');
+                }
+                if (!questionElement) return;
+                
+                const question = questionElement.textContent.trim().replace(' *', '');
+                let answer = '';
+                
+                if (input.type === 'file') {
+                    const files = Array.from(input.files);
+                    if (files.length > 0) {
+                        answer = files.map(file => {
+                            const size = (file.size / 1024 / 1024).toFixed(2);
+                            return `${file.name} (${size} MB)`;
+                        }).join('، ');
+                    }
+                } else if (input.type === 'radio' || input.type === 'checkbox') {
+                    const optionLabel = input.closest('.form-check')?.querySelector('.form-check-label');
+                    if (optionLabel) {
+                        answer = optionLabel.textContent.trim();
+                    }
+                } else if (input.tagName.toLowerCase() === 'select') {
+                    const selectedOption = input.querySelector('option:checked');
+                    if (selectedOption && selectedOption.value !== '') {
+                        answer = selectedOption.textContent.trim();
+                    }
+                } else if (input.tagName.toLowerCase() === 'textarea') {
+                    answer = input.value.trim();
+                } else {
+                    answer = input.value.trim();
+                }
+                
+                if (answer && !ignoreTexts.includes(answer)) {
+                    hasAnswers = true;
+                    if (answersMap.has(question)) {
+                        answersMap.get(question).push(answer);
+                    } else {
+                        answersMap.set(question, [answer]);
+                    }
+                }
+            });
+            
+            // معالجة خاصة للطلبات الإضافية
+            const additionalRequests = document.querySelector('textarea[name="additional_requests"]');
+            if (additionalRequests && additionalRequests.value.trim()) {
+                hasAnswers = true;
+                answersMap.set('الطلبات الإضافية', [additionalRequests.value.trim()]);
+            }
+            
+            if (hasAnswers) {
+                answersMap.forEach((answers, question) => {
+                    const answerItem = document.createElement('div');
+                    answerItem.className = 'answer-item';
+                    
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'question';
+                    questionDiv.textContent = question;
+                    
+                    const answerDiv = document.createElement('div');
+                    answerDiv.className = 'answer';
+                    answerDiv.textContent = answers.join('، ');
+                    
+                    answerItem.appendChild(questionDiv);
+                    answerItem.appendChild(answerDiv);
+                    answersContainer.appendChild(answerItem);
+                });
+            } else {
+                answersContainer.innerHTML = '<div class="text-center text-muted">لم يتم إدخال أي إجابات بعد</div>';
+            }
+        }
+
+        // تحديث ملخص الإجابات عند تغيير أي إجابة
+        document.querySelectorAll('input, textarea, select').forEach(element => {
+            element.addEventListener('change', updateAnswersSummary);
+        });
+        
+        // تحديث ملخص الإجابات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', updateAnswersSummary);
+        
+        // تحديث ملخص الإجابات عند النقر على تبويب الملخص
+        document.getElementById('answers-summary-tab').addEventListener('click', updateAnswersSummary);
     </script>
 </body>
 </html>
